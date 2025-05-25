@@ -1,0 +1,5 @@
+<Bindings>
+    <Binding name="MARK_AND_PING" header="MARK_AND_PING">
+        MarkAndNotify("target")
+    </Binding>
+</Bindings>
