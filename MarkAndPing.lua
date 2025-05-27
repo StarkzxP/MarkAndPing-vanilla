@@ -115,7 +115,7 @@ local function GetUnitColor(unit)
 end
 
 function MarkAndNotify(unit)
-    if not GetNumPartyMembers() > 0 or not GetNumRaidMembers() > 0 then
+    if not (GetNumPartyMembers() > 0 or GetNumRaidMembers() > 0) then
         printLine("You must be in a raid or party to use this.")
         return
     end
