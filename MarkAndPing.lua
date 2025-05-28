@@ -183,41 +183,10 @@ end)
 
 local function SplitString(input)
     local parts = {}
-    local currentWord = ""
-    local inWord = false
-    local len = 0
-
-    -- Calcular longitud manualmente
-    while true do
-        len = len + 1
-        if not string.sub(input, len, len) then
-            break
-        end
+    input = input or ""
+    for part in string.gmatch(input, "%S+") do
+        table.insert(parts, part)
     end
-    len = len - 1
-
-    -- Iterar caracter por caracter
-    for i = 1, len do
-        local char = string.sub(input, i, i)
-        local isSpace = (string.byte(char) == 32)
-
-        if isSpace then
-            if inWord then
-                table.insert(parts, currentWord)
-                currentWord = ""
-                inWord = false
-            end
-        else
-            currentWord = currentWord .. char
-            inWord = true
-        end
-    end
-
-    -- Añadir última palabra
-    if currentWord ~= "" then
-        table.insert(parts, currentWord)
-    end
-
     return parts
 end
 
