@@ -157,9 +157,7 @@ local function FindGroupMemberTarget(senderName)
 
     for i = 1, groupMembers do
         local unit = groupPrefix .. i
-        print("unitname " .. UnitName(unit))
         if UnitName(unit) == senderName then
-            print("groupunit " .. unit .. " sender " .. senderName)
             return unit .. "target"
         end
     end
